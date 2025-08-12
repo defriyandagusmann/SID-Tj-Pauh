@@ -21,7 +21,7 @@
                     @enderror
                 </div>
                 <div>
-                    <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
+                    <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat Lengkap</label>
                     <input type="text" name="alamat" id="alamat" value="{{ old('alamat') }}" class="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     @error('alamat')
                         <div class="text-red-500 text-sm">{{ $message }}</div>

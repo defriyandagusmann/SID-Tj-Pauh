@@ -23,7 +23,7 @@
             <tr class="*:font-medium *:text-gray-900">
               <th class="px-3 py-2 whitespace-nowrap">NIK</th>
               <th class="px-3 py-2 whitespace-nowrap">Nama</th>
-              <th class="px-3 py-2 whitespace-nowrap">Alamat</th>
+              <th class="px-3 py-2 whitespace-nowrap">Alamat Lengkap</th>
               <th class="px-3 py-2 whitespace-nowrap">Details</th>
             </tr>
           </thead>
@@ -36,21 +36,21 @@
                     <td class="px-3 py-2 whitespace-nowrap">{{ $penduduk->alamat }}</td>
                     <td class="px-3 py-2 whitespace-nowrap">
                         <div class="flex justify-center gap-2">
-                            <button
-                              class="rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer bg-green-500 transition-colors hover:bg-gray-50 hover:text-green-500   disabled:pointer-events-auto disabled:opacity-50" href="{{ route('penduduk.show', $penduduk->id) }}"
-                            >
-                                <a href="{{ route('penduduk.show', $penduduk->id) }}" class="hover:text-green-500">
+                            <a href="{{ route('penduduk.show', $penduduk->id) }}" class="hover:text-green-500">
+                                <button
+                                  class="rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer bg-green-500 transition-colors hover:bg-gray-50 hover:text-green-500   disabled:pointer-events-auto disabled:opacity-50" href="{{ route('penduduk.show', $penduduk->id) }}"
+                                >
                                     View
-                                </a>
-                            </button>
+                                </button>
+                            </a>
 
-                            <button
-                              class="rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer bg-blue-500 transition-colors hover:bg-white hover:text-blue-500   disabled:pointer-events-auto disabled:opacity-50"
-                            >
-                                <a href="{{ route('penduduk.edit', $penduduk->id) }}" class="hover:text-blue-500">
+                            <a href="{{ route('penduduk.edit', $penduduk->id) }}" class="hover:text-blue-500">
+                                <button
+                                  class="rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer bg-blue-500 transition-colors hover:bg-white hover:text-blue-500   disabled:pointer-events-auto disabled:opacity-50"
+                                >
                                     Edit
-                                </a>
-                            </button>
+                                </button>
+                            </a>
 
                             <form action="{{ route('penduduk.destroy', $penduduk->id) }}" method="post">
                                 @csrf

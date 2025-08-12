@@ -17,7 +17,7 @@
           </div>
 
           <div class="grid grid-cols-1 gap-1 p-3 sm:grid-cols-3 sm:gap-4">
-            <dt class="font-medium text-gray-900">Alamat</dt>
+            <dt class="font-medium text-gray-900">Alamat Lengkap</dt>
 
             <dd class="text-gray-700 sm:col-span-2">{{ $penduduk->alamat }}</dd>
           </div>
@@ -31,9 +31,9 @@
     </div>
     <div class="mt-10 ">
         <button
-            class=" rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer text-gray-700 bg-blue-500 transition-colors hover:bg-white hover:text-blue-500 disabled:pointer-events-auto disabled:opacity-50"
+            class=" rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer  bg-blue-500 transition-colors hover:bg-white hover:text-blue-500 disabled:pointer-events-auto disabled:opacity-50"
             >
-            <a href="{{ route('penduduk.index') }}" class="text-gray-700 hover:text-blue-500">
+            <a href="{{ route('penduduk.index') }}" class=" hover:text-blue-500">
                 < Kembali
             </a>
         </button>

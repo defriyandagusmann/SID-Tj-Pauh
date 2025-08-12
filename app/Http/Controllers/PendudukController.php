@@ -20,9 +20,11 @@ class PendudukController extends Controller
             $penduduks = Penduduk::with('wilayah')
                 ->where('nama', 'like', '%' . $search . '%')
                 ->orWhere('nik', 'like', '%' . $search . '%')
+                ->orWhere('alamat', 'like', '%' . $search . '%')
                 ->orderBy('created_at', 'desc')
                 ->paginate(10);
-        } else {
+        }
+        else {
             $penduduks = Penduduk::with('wilayah')->orderBy('created_at', 'desc')->paginate(10);
         }
         // $penduduks = Penduduk::with('wilayah')->orderBy('created_at', 'desc')->paginate(10);
@@ -89,7 +91,7 @@ class PendudukController extends Controller
     {
         //
         $request->validate([
-            'nik' => 'required|string|max:16|unique:penduduks,nik' . $penduduk->id,
+            'nik' => 'required|digits:16|unique:penduduks,nik' . $penduduk->id,
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
         ]);
