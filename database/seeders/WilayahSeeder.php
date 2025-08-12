@@ -14,6 +14,6 @@ class WilayahSeeder extends Seeder
     public function run(): void
     {
         //
-        Wilayah::factory()->count(1)->create(); // Create 10 random Wilayah records
+        Wilayah::factory()->count(10)->create(); // Create 10 random Wilayah records
     }
 }

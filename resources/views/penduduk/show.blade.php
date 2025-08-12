@@ -28,5 +28,14 @@
             <dd class="text-gray-700 sm:col-span-2">{{ $penduduk->wilayah->dusun }}</dd>
           </div>
         </dl>
-      </div>
+    </div>
+    <div class="mt-10 ">
+        <button
+            class=" rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer text-gray-700 bg-blue-500 transition-colors hover:bg-white hover:text-blue-500 disabled:pointer-events-auto disabled:opacity-50"
+            >
+            <a href="{{ route('penduduk.index') }}" class="text-gray-700 hover:text-blue-500">
+                < Kembali
+            </a>
+        </button>
+    </div>
 </x-layout>

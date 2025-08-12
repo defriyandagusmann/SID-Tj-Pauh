@@ -23,8 +23,8 @@ class PendudukFactory extends Factory
                 'nik' => fake()->unique()->numerify('################'),
                 'nama' => fake()->name(),
                 'alamat' => fake()->address('id_ID'),
-                // 'wilayah_id' => Wilayah::inRandomOrder()->first()->id // Assuming wilayah with ID 1 exists
-                'wilayah_id' => Wilayah::factory(), // Create a new Wilayah instance for each Penduduk'
+                // 'wilayah_id' => Wilayah::inRandomOrder()->first()->id ?? Wilayah::factory() // Assuming wilayah with ID 1 exists
+                'wilayah_id' => Wilayah::inRandomOrder()->first()->id, // Fallback to ID 1 if no wilayah exists
             ];
     }
 }

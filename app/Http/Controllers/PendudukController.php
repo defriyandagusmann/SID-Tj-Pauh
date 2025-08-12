@@ -12,10 +12,20 @@ class PendudukController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $penduduks = Penduduk::with('wilayah')->orderBy('nama', 'asc')->paginate(10);
+        $search = $request->input('search');
+        if ($search) {
+            $penduduks = Penduduk::with('wilayah')
+                ->where('nama', 'like', '%' . $search . '%')
+                ->orWhere('nik', 'like', '%' . $search . '%')
+                ->orderBy('created_at', 'desc')
+                ->paginate(10);
+        } else {
+            $penduduks = Penduduk::with('wilayah')->orderBy('created_at', 'desc')->paginate(10);
+        }
+        // $penduduks = Penduduk::with('wilayah')->orderBy('created_at', 'desc')->paginate(10);
         return view('penduduk.index', ['penduduks' => $penduduks]);
     }
 
@@ -37,7 +47,7 @@ class PendudukController extends Controller
     {
         //
         $validated = $request->validate([
-            'nik' => 'required|string|max:16|unique:penduduks,nik',
+            'nik' => 'required|digits:16|unique:penduduks,nik',
             'nama' => 'required|string|max:255',
             'alamat' => 'required|string|max:255',
             'wilayah_id' => 'required|exists:wilayahs,id', // Assuming wilayah_id is part of the form
@@ -48,8 +58,8 @@ class PendudukController extends Controller
             'alamat' => $validated['alamat'],
             'wilayah_id' => $validated['wilayah_id'] , // Assuming wilayah_id is part of the form
         ]);
-        // return redirect()->route('penduduk.index')->with('success', 'Penduduk created successfully.');
-        return dd('Penduduk created successfully.', $validated);
+        return redirect()->route('penduduk.index')->with('success', 'Penduduk created successfully.');
+        // return dd('Penduduk created successfully.', $validated);
     }
 
     /**
