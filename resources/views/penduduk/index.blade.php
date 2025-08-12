@@ -18,8 +18,8 @@
         </div>
     </div>
     <div class="overflow-x-auto rounded border border-gray-300 shadow-sm mt-4 lg:w-[80%] sm:w-[90%] w-full">
-        <table class="min-w-full divide-y-2 divide-gray-200">
-          <thead class="text-center">
+        <table class="justify-center text-center w-full divide-y-2 divide-gray-200">
+          <thead>
             <tr class="*:font-medium *:text-gray-900">
               <th class="px-3 py-2 whitespace-nowrap">NIK</th>
               <th class="px-3 py-2 whitespace-nowrap">Nama</th>
@@ -35,7 +35,7 @@
                     <td class="px-3 py-2 whitespace-nowrap">{{ $penduduk->nama }}</td>
                     <td class="px-3 py-2 whitespace-nowrap">{{ $penduduk->alamat }}</td>
                     <td class="px-3 py-2 whitespace-nowrap">
-                        <div class="inline-flex gap-2">
+                        <div class="flex justify-center gap-2">
                             <button
                               class="rounded border border-gray-200 px-3 py-2 font-medium cursor-pointer bg-green-500 transition-colors hover:bg-gray-50 hover:text-green-500   disabled:pointer-events-auto disabled:opacity-50" href="{{ route('penduduk.show', $penduduk->id) }}"
                             >
